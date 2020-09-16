@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../store';
+import { addTodo } from '../TodoSlice';
 
 export const AddTodo: React.FC = () => {
   const [text, setText] = useState('');
@@ -9,7 +9,7 @@ export const AddTodo: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleAddTodo = () => {
-    dispatch(addTodo(text));
+    dispatch(addTodo({text: text}));
     setText('');
   }
 

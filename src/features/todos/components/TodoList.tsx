@@ -1,15 +1,16 @@
 import Todo from './Todo';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clickTodo, TodoState } from '../store';
+import { RootState } from '../../../store';
+import { toggleTodo } from '../TodoSlice';
 
 const TodoList: React.FC = () => {
-  const todos = useSelector((state: TodoState) => state.todos);
+  const todos = useSelector((state: RootState) => state.todos.todos);
 
   const dispatch = useDispatch();
 
   const handleTodoClick = (todoId: number) => {
-    dispatch(clickTodo(todoId));
+    dispatch(toggleTodo({todoId: todoId}));
   }
 
   return <ul>

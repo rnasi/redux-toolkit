@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodoModel } from '../store';
+import { TodoModel } from '../TodoModel';
 
 interface Props {
   onClick: (todoId: number) => void;
