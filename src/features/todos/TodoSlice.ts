@@ -13,6 +13,9 @@ const initState: TodoState = {
 
 // This defines a reducer for todos with a name and initial state. The reducer itself is a key-value pair instead of a
 // giant switch statement which cuts down on lines.
+// You can syntactically mutate state directly here (for the most part) and toolkit will take care to make a copy first.
+// e.g. on line 25 we can just call `push` on the state variable instead of copying the whole array, adding to it, and
+// reassigning our new variable to the state variable.
 const todoSlice = createSlice(
   {
     name: 'todoSlice',
@@ -34,10 +37,12 @@ const todoSlice = createSlice(
   },
 );
 
-// This creates actions automatically. You can import these into a component and call them and whatever parameter you
-// pass can be accesses in the reducer as action.payload, e.g.:
-// dispatch(addTodo({text: 'hello'}));
-// will make line 22 work with action.payload.text being 'hello'.
+// This creates actions automatically. These actions by default are functions that accept an optional generic object as
+// an argument, which can be accessed in the reducer as `action.payload`. Any parameters you need for the action can be
+// put into this generic object.
+// For example:
+//  dispatch(addTodo({text: 'hello'}));
+// will make line 25 work with action.payload.text being 'hello'.
 export const {
   addTodo,
   toggleTodo,

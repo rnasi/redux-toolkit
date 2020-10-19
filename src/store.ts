@@ -6,7 +6,7 @@ export const store = configureStore(
   {
     reducer: {
       todos: todoSlice.reducer,
-      // For more reducers, just name and all it here as above.
+      // For more reducers, just name and add it here as above.
     },
   },
 );
